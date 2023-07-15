@@ -30,11 +30,11 @@ const Hero = () => {
       }}
     >
       <Content>
-        <Title className="rounded-full flex justify-center items-center text-zinc-50 text-2xl">
+        <Title className="rounded-full flex items-center text-zinc-50 text-2xl justify-center w-full">
           <Link to={`/movie/${data[count].id}`}>{data[count].originalTitle}</Link>
         </Title>
 
-        <span className="flex child:py-4 child:px-6">
+        <span className="flex w-full child:py-4 child:px-6 items-center justify-center">
           <Language>
             {data[count].originalLanguage === "en"
               ? "English"
