@@ -10,7 +10,7 @@ function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getLocation());
-    return ()=>dispatch(resetAction())
+    return () => dispatch(resetAction());
   }, []);
 
   const ipAddress = useSelector((state) => state.ipAddress);
