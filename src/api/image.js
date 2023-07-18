@@ -1,5 +1,5 @@
 export const BACK_DROP_W300 = "https://image.tmdb.org/t/p/w300";
-export const BACK_DROP_W780 = "https://image.tmdb.org/t/p/W780";
+export const BACK_DROP_W780 = "https://image.tmdb.org/t/p/w780";
 export const BACK_DROP_W1280 = "https://image.tmdb.org/t/p/w1280";
 export const BACK_DROP_ORIGINAL = "https://image.tmdb.org/t/p/original";
 
