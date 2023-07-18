@@ -38,7 +38,7 @@ function CardSlider({ type, list }) {
       {data.length ? (
         <div className="w-full bg-zinc-950 text-orange-500  flex justify-center">
           <div className=" w-full flex flex-col items-center p-4">
-            <div className="w-full flex justify-between text-4xl child:py-4">
+            <div className="w-full flex justify-between md:text-4xl child:py-4">
               <h2>{type.toUpperCase()}</h2>
               <h3>{listFixer(list)}</h3>
             </div>
@@ -70,7 +70,7 @@ function CardSlider({ type, list }) {
             >
               {data.map((item) => (
                 <SwiperSlide className="relative w-full" key={item.id}>
-                  <Card item={item} />
+                  <Card type={type} item={item} />
                 </SwiperSlide>
               ))}
               <SwiperSlide className="flex flex-col justify-center items-center">

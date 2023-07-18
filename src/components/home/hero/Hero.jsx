@@ -1,5 +1,5 @@
 import { useHomeState } from "../../../hooks";
-import { BACK_DROP_ORIGINAL,BACK_DROP_W780} from "../../../api/image";
+import { BACK_DROP_ORIGINAL,BACK_DROP_W300} from "../../../api/image";
 import {
   Container,
   Content,
@@ -61,7 +61,7 @@ const Hero = () => {
                   src={`${BACK_DROP_ORIGINAL}${item.backdropPath}`}
                   width={"100%"}
                   className="h-screen  object-cover object-center"
-                  PlaceholderSrc={`${BACK_DROP_W780}/${item.posterPath}`}
+                  placeholderSrc={`${BACK_DROP_W300}/${item.posterPath}`}
                   effect="blur"
                   alt={item.title}
                 />
@@ -77,7 +77,7 @@ const Hero = () => {
                         : item.originalLanguage}
                     </Language>
                     <Vote>{item.voteAverage}</Vote>
-                    <ReleaseData>{item.releaseDate}</ReleaseData>
+                    <ReleaseData>{item.releaseDate.slice(0,4)}</ReleaseData>
                   </span>
                 </Content>
               </Container>
