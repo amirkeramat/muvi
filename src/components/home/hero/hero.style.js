@@ -1,7 +1,7 @@
 import tw from "tailwind-styled-components";
 
 export const Container = tw.section`
-bg-[image:var(--image-url)]   w-full h-screen bg-top bg-origin-content bg-cover  bg-no-repeat relative after:content-[''] after:absolute after:z-[998] after:bg-zinc-950/20 after:inset-0
+w-full h-screen bg-top bg-origin-content bg-cover  bg-no-repeat relative after:content-[''] after:absolute after:z-[998] after:bg-zinc-950/20 after:inset-0
 `;
 
 export const Content = tw.div`
