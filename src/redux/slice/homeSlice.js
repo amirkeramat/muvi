@@ -2,9 +2,9 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { BASE_URL, API_KEY } from "../../api/index";
 const initialState = {
-  loading:"idle",
+  loading: "idle",
   data: {},
-  error:null
+  error: null,
 };
 
 const options = (type, list) => {
@@ -18,7 +18,7 @@ const options = (type, list) => {
   };
 };
 
-export const getData = createAsyncThunk(
+export const getNowPlaying = createAsyncThunk(
   "home/getNowPlaying",
   async (arg) => {
     const { type, list } = arg;
@@ -38,16 +38,16 @@ const homeSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(getData.pending, (state) => {
+    builder.addCase(getNowPlaying.pending, (state, action) => {
       state.loading = "pending";
     });
-    builder.addCase(getData.fulfilled, (state, action) => {
-      state.loading = "fulfilled";
-      state.data[action.meta.arg.list] = action.payload;
+    builder.addCase(getNowPlaying.fulfilled, (state, action) => {
+      (state.loading = "fulfilled"),
+        (state.data[action.meta.arg.list] = action.payload);
       state.data[action.meta.arg.list].type = action.meta.arg.type;
       state.data[action.meta.arg.list].loading = "fulfilled";
     });
-    builder.addCase(getData.rejected, (state, action) => {
+    builder.addCase(getNowPlaying.rejected, (state, action) => {
       state.loading = "rejected";
       state.error = action.error.message;
     });
