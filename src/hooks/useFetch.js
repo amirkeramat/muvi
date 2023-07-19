@@ -1,14 +1,12 @@
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { getData } from "../redux/slice/homeSlice";
 const useFetch = (props) => {
-  const { arg, getData } = props;
+  const { arg } = props;
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getData(arg));
   }, []);
-
-  const homeState = useSelector((state) => state.home);
-  return [homeState.loading]
 };
 
 export default useFetch;
