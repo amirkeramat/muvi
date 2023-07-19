@@ -1,8 +1,8 @@
-import { Home,Movie } from "./pages";
+import { Home, MediaInfo } from "./pages";
 
 const routes = [
-    { path: "/", element: <Home /> },
-    { path: "/movie/:movieID", element: <Movie /> }
+  { path: "/", element: <Home /> },
+  { path: "/mediaInfo/:type/:typeId", element: <MediaInfo /> },
 ];
 
 export default routes;
