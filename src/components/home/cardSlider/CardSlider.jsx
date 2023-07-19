@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { useHomeState } from "../../../hooks";
 import Card from "../../shared/card/Card";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -10,7 +11,6 @@ import "swiper/css/pagination";
 import { useDispatch } from "react-redux";
 import { getPushData } from "../../../redux/slice/homeSlice";
 import useFetch from "../../../hooks/useFetch";
-import { getData } from "../../../redux/slice/homeSlice";
 import listFixer from "../../../helper/list";
 function CardSlider({ type, list }) {
   const arg = {
@@ -20,7 +20,6 @@ function CardSlider({ type, list }) {
   };
   useFetch({
     arg,
-    getData,
   });
   const { data, pager, moreLoading } = useHomeState(type, list);
   const { page } = pager;
@@ -36,9 +35,9 @@ function CardSlider({ type, list }) {
   return (
     <>
       {data.length ? (
-        <div className="w-full bg-zinc-950 text-orange-500  flex justify-center">
-          <div className=" w-full flex flex-col items-center p-4">
-            <div className="w-full flex justify-between md:text-4xl child:py-4">
+        <div className='w-full bg-zinc-950 text-orange-500  flex justify-center'>
+          <div className=' w-full flex flex-col items-center p-4'>
+            <div className='w-full flex justify-between md:text-4xl child:py-4'>
               <h2>{type.toUpperCase()}</h2>
               <h3>{listFixer(list)}</h3>
             </div>
@@ -48,7 +47,7 @@ function CardSlider({ type, list }) {
               slidesPerView={1}
               navigation={true}
               modules={[Navigation]}
-              className="mySwiper w-full"
+              className='mySwiper w-full'
               breakpoints={{
                 640: {
                   slidesPerView: 2,
@@ -66,17 +65,16 @@ function CardSlider({ type, list }) {
                   slidesPerView: 8,
                   spaceBetween: 10,
                 },
-              }}
-            >
+              }}>
               {data.map((item) => (
-                <SwiperSlide className="relative w-full" key={item.id}>
+                <SwiperSlide className='relative w-full' key={item.id}>
                   <Card type={type} item={item} />
                 </SwiperSlide>
               ))}
-              <SwiperSlide className="flex flex-col justify-center items-center">
+              <SwiperSlide className='flex flex-col justify-center items-center'>
                 <button onClick={loadMoreHandler}>Load More..</button>
                 {moreLoading === "pending" ? (
-                  <LoadingOutlined className="text-4xl" />
+                  <LoadingOutlined className='text-4xl' />
                 ) : null}
               </SwiperSlide>
             </Swiper>
@@ -88,3 +86,8 @@ function CardSlider({ type, list }) {
 }
 
 export default CardSlider;
+
+CardSlider.propTypes = {
+  type: PropTypes.string,
+  list: PropTypes.string,
+};
