@@ -50,14 +50,14 @@ const Intro = ({ type }) => {
                 ))}
               </span>
               <div className='flex flex-wrap child:me-1 child:mb-2 '>
-                <h6 className='bg-gray-900 text-gray-400 whitespace-nowrap py-3 px-2 w-[110px] rounded-xl flex justify-center items-center'>
+                <h6 className='bg-gray-900 text-gray-400 whitespace-nowrap py-3 px-2 w-[120px] rounded-xl flex justify-center items-center'>
                   {status}
                 </h6>
-                <h6 className='bg-gray-900 text-gray-400 whitespace-nowrap py-3 px-2 w-[110px] rounded-xl flex justify-center items-center'>
+                <h6 className='bg-gray-900 text-gray-400 whitespace-nowrap py-3 px-2 w-[120px] rounded-xl flex justify-center items-center'>
                   {releaseDate?.slice(0, 4)}
                   {firstAirDate?.slice(0, 4)}
                 </h6>
-                <h6 className='bg-gray-900   text-gray-400 whitespace-nowrap py-3 px-2 w-[110px] rounded-xl flex justify-center items-center child:me-1'>
+                <h6 className='bg-gray-900   text-gray-400 whitespace-nowrap py-3 px-2 w-[120px] rounded-xl flex justify-center items-center child:me-1'>
                   <span className='bg-yellow-500 px-1 font-bold rounded-lg text-zinc-950'>
                     IMDB
                   </span>
