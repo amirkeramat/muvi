@@ -74,7 +74,9 @@ const useDataState = (type) => {
         : [],
     videos:
       singleData.videos.loading === "fulfilled"
-        ? singleData.videos?.results.slice(0,5).filter((video) => video.site === "YouTube")
+        ? singleData.videos?.results
+            .slice(0, 5)
+            .filter((video) => video.site === "YouTube")
         : null,
     credits:
       singleData.credits?.loading === "fulfilled"
@@ -96,6 +98,29 @@ const useDataState = (type) => {
             }),
           }
         : [],
+    similar:
+      singleData.similar?.loading === "fulfilled"
+        ? {
+            loading: singleData.similar?.loading,
+            moreLoading: singleData.similar?.moreLoading
+              ? singleData.similar?.moreLoading
+              : "idle",
+            results: singleData.similar?.results.map((item) => {
+              return {
+                id: item.id,
+                posterPath: item.poster_path,
+                originalTitle: item.original_title,
+                voteCount: item.vote_count,
+              };
+            }),
+            page: singleData.similar?.page,
+          }
+        : {
+            page: 1,
+            loading: singleData.similar?.loading,
+            moreLoading: singleData.similar?.moreLoading,
+            results: [],
+          },
   };
 };
 export default useDataState;

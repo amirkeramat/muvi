@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { Intro } from "../../components/mediaInfo";
 import Credits from "../../components/mediaInfo/credits/Credits";
 import Videos from "../../components/mediaInfo/videos/Videos";
+import Similar from "../../components/mediaInfo/similar/Similar";
 const MediaInfo = () => {
   const { type, typeId } = useParams();
   const arg = {
@@ -16,6 +17,7 @@ const MediaInfo = () => {
       <Intro type={type} />
       <Videos/>
       <Credits/>
+      <Similar/>
     </>
   );
 };

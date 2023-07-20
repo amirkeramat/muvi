@@ -21,7 +21,6 @@ const Credits = () => {
   };
   useFetchById({ arg });
   const { credits } = useDataState(type);
-  console.log(credits);
 
   const Slider = ({ item, title }) => {
     return (
