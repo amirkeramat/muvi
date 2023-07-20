@@ -28,7 +28,7 @@ const Intro = ({ type }) => {
             <LazyLoadImage
               src={`${BACK_DROP_ORIGINAL}/${backdropPath}`}
               placeholderSrc={`${BACK_DROP_W780}/${backdropPath}`}
-              width={"100%"
+              width={"100%"}
 height={"100%"}
               effect='blur'
               className='object-cover'
