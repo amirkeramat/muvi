@@ -23,14 +23,14 @@ const Intro = ({ type }) => {
   return (
     <>
       {loading === "fulfilled" ? (
-        <div className='bg-zinc-950 h-full'>
-          <div className='w-full after:absolute after:content-[""] after:bottom-0 after:h-[300px]  after:md:h-[250px] after:w-full after:left-0 after:bg-gradient-to-t after:via-zinc-900/90 after:to-zinc-900/5  after:from-zinc-950 overflow-hidden'>
+        <div className='bg-zinc-950'>
+          <div className='w-full h-screen relative  after:absolute after:content-[""] after:bottom-0 after:h-[300px]  after:md:h-[250px] after:w-full after:left-0 after:bg-gradient-to-t after:via-zinc-900/90 after:to-zinc-900/5  after:from-zinc-950 overflow-hidden'>
             <LazyLoadImage
-              wrapperClassName='h-[90vh] md:h-screen w-full overflow-hidden'
+              wrapperClassName='h-full w-full '
               src={`${BACK_DROP_ORIGINAL}/${backdropPath}`}
               placeholderSrc={`${BACK_DROP_W780}/${backdropPath}`}
               effect='blur'
-              className='w-full h-[90vh] md:h-screen  object-cover object-center overflow-hidden'
+              className='w-full h-screen  object-cover object-center'
             />
             <div className='absolute z-[99] bottom-0 left-0 w-full p-2 md:p-4 child:my-2'>
               <h3 className='text-zinc-50 text-2xl md:text-5xl'>
