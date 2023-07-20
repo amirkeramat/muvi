@@ -26,7 +26,7 @@ const Intro = ({ type }) => {
         <div className='bg-zinc-950 h-full'>
           <div className='h-screen w-full after:absolute after:content-[""] after:bottom-0 after:h-[300px]  after:md:h-[250px] after:w-full after:left-0 after:bg-gradient-to-t after:via-zinc-900/70 after:to-zinc-900/5 after:shadow-lg after:shadow-zinc-950 after:from-zinc-950'>
             <LazyLoadImage
-              wrapperClassName='h-screen'
+              wrapperClassName='h-screen w-full'
               src={`${BACK_DROP_ORIGINAL}/${backdropPath}`}
               placeholderSrc={`${BACK_DROP_W780}/${backdropPath}`}
               effect='blur'
