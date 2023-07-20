@@ -31,7 +31,7 @@ const Intro = ({ type }) => {
               width={"100%"}
 height={"100%"}
               effect='blur'
-              className='object-cover'
+              className='h-screen  w-full object-cover'
             />
             <div className='absolute z-[99] bottom-0 left-0 w-full p-2 md:p-4 child:my-2'>
               <h3 className='text-zinc-50 text-2xl md:text-5xl'>
