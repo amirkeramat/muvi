@@ -26,13 +26,11 @@ const Intro = ({ type }) => {
         <div className='bg-zinc-950 h-full'>
           <div className='h-screen w-full after:absolute after:content-[""] after:bottom-0 after:h-[300px]  after:md:h-[250px] after:w-full after:left-0 after:bg-gradient-to-t after:via-zinc-900/70 after:to-zinc-900/5 after:shadow-lg after:shadow-zinc-950 after:from-zinc-950  overflow-hidden'>
             <LazyLoadImage
-              wrapperClassName='h-full'
+              wrapperClassName='h-screen'
               src={`${BACK_DROP_ORIGINAL}/${backdropPath}`}
               placeholderSrc={`${BACK_DROP_W780}/${backdropPath}`}
-              width={"100%"}
-              height={"100%"}
               effect='blur'
-              className='h-full max-h-screen object-cover object-center'
+              className='w-full h-full object-cover object-center'
             />
             <div className='absolute z-[99] bottom-0 left-0 w-full p-2 md:p-4 child:my-2'>
               <h3 className='text-zinc-50 text-2xl md:text-5xl'>

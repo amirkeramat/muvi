@@ -76,7 +76,7 @@ const Credits = () => {
                 )}
 
                 <span className='flex w-[100px] flex-col justify-between  text-sm px-2'>
-                  <h6 className='text-zinc-50'>{item.name}</h6>
+                  <h6 className='text-zinc-50 text-xs'>{item.name}</h6>
                   <h6 className='text-gray-400 text-xs whitespace-pre-wrap '>
                     {title === "cast" ? item.character : item.job}
                   </h6>
