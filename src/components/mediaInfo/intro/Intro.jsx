@@ -24,9 +24,9 @@ const Intro = ({ type }) => {
     <>
       {loading === "fulfilled" ? (
         <div className='bg-zinc-950 h-full'>
-          <div className='h-screen w-full after:absolute after:content-[""] after:bottom-0 after:h-[300px]  after:md:h-[250px] after:w-full after:left-0 after:bg-gradient-to-t after:via-zinc-900/90 after:to-zinc-900/5  after:from-zinc-950'>
+          <div className='h-screen w-full after:absolute after:content-[""] after:bottom-0 after:h-[300px]  after:md:h-[250px] after:w-full after:left-0 after:bg-gradient-to-t after:via-zinc-900/90 after:to-zinc-900/5  after:from-zinc-950 '>
             <LazyLoadImage
-              wrapperClassName='h-[90vh] md:h-screen w-full'
+              wrapperClassName='h-[90vh] md:h-screen w-full overflow-hidden'
               src={`${BACK_DROP_ORIGINAL}/${backdropPath}`}
               placeholderSrc={`${BACK_DROP_W780}/${backdropPath}`}
               effect='blur'
@@ -43,13 +43,13 @@ const Intro = ({ type }) => {
               <span className='child:me-2 child:mb-2 flex flex-wrap'>
                 {genres?.map((genre) => (
                   <Link
-                    className='bg-gray-400 text-gray-900 rounded-xl py-1 px-2 hover:underline'
+                    className='bg-gray-400 text-gray-900 rounded-xl py-1 px-2 hover:underline text-sm'
                     key={genre.id}>
                     {genre.name}
                   </Link>
                 ))}
               </span>
-              <div className='flex flex-wrap child:me-1 child:mb-2 '>
+              <div className='flex flex-wrap child:me-1 child:mb-2 text-sm '>
                 <h6 className='bg-gray-900 text-gray-400 whitespace-nowrap py-3 px-2 w-[120px] rounded-xl flex justify-center items-center'>
                   {status}
                 </h6>
