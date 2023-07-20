@@ -30,7 +30,7 @@ const Intro = ({ type }) => {
               placeholderSrc={`${BACK_DROP_W780}/${backdropPath}`}
               width={"100%"}
               effect='blur'
-              className='h-full object-cover object-center'
+              className='h-screen object-cover'
             />
             <div className='absolute z-[99] bottom-0 left-0 w-full p-2 md:p-4 child:my-2'>
               <h3 className='text-zinc-50 text-2xl md:text-5xl'>
