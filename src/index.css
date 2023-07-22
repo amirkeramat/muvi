@@ -41,3 +41,16 @@ h4,h5,h6,a,button,li {
 p,div,span{
   font-family: "poppins";
 }
+
+:root{
+--swiper-navigation-color: #fff
+--swiper-pagination-color: #fff
+}
+ .swiper-button-next,
+ .swiper-button-prev {
+
+   border-radius: 100%;
+   color: orangered;
+   opacity: 20%;
+   width: 10px;
+ }
