@@ -1,4 +1,4 @@
-import { homeReducer, dataReducer, ipReducer } from "./slice";
+import { homeReducer, dataReducer, ipReducer,searchReducer } from "./slice";
 import { configureStore } from "@reduxjs/toolkit";
 
 const store = configureStore({
@@ -6,6 +6,7 @@ const store = configureStore({
     home: homeReducer,
     singleData: dataReducer,
     ipAddress: ipReducer,
+    search: searchReducer,
   },
 });
 
