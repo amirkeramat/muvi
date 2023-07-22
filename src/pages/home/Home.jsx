@@ -5,15 +5,15 @@ const Home = () => {
     <>
       <Hero />
       <div id='movie'>
-        <CardSlider type='movie' list='upcoming' />
+        <CardSlider shape={"ver"} type='movie' list='upcoming' />
         <CardSlider type='movie' list='now_playing' />
-        <CardSlider type='movie' list='popular' />
+        <CardSlider shape={"ver"} type='movie' list='popular' />
         <CardSlider type='movie' list='top_rated' />
       </div>
       <div id='tv'>
-        <CardSlider type='tv' list='airing_today' />
+        <CardSlider shape={"ver"} type='tv' list='airing_today' />
         <CardSlider type='tv' list='on_the_air' />
-        <CardSlider type='tv' list='popular' />
+        <CardSlider shape={"ver"} type='tv' list='popular' />
         <CardSlider type='tv' list='top_rated' />
       </div>
     </>

@@ -12,10 +12,14 @@ const Videos = () => {
   useFetchById({ arg });
   const { videos } = useDataState(type);
   return (
-    <div className='p-4 md:p-20 bg-zinc-950'>
-      <h1 className='text-orange-500 text-center text-2xl'>Trailers</h1>
-      {videos ? <VideoSlider videos={videos} /> : null}
-    </div>
+    <>
+      {videos.length>0 ? (
+        <div className='p-4 md:p-20 bg-zinc-950'>
+          <h1 className='text-orange-500 text-center text-2xl'>Trailers</h1>
+          <VideoSlider videos={videos} />
+        </div>
+      ) : null}
+    </>
   );
 };
 

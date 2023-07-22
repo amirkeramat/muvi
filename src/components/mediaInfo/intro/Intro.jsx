@@ -5,7 +5,16 @@ import { BACK_DROP_ORIGINAL, BACK_DROP_W780 } from "../../../api/image";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { Link } from "react-router-dom";
 import { PageLoader } from "../../shared";
-const Intro = ({ type }) => {
+import { useParams } from "react-router-dom";
+import {useFetchById} from "../../../hooks";
+const Intro = () => {
+   const { type, typeId } = useParams();
+   const arg = {
+     id: Number(typeId),
+     type,
+     detail: "",
+   };
+   useFetchById({ arg });
   const { data, loading } = useDataState(type);
   const {
     backdropPath,
@@ -19,7 +28,6 @@ const Intro = ({ type }) => {
     overview,
     genres,
   } = data;
-  console.log(data);
   return (
     <>
       {loading === "fulfilled" ? (
@@ -61,7 +69,7 @@ const Intro = ({ type }) => {
                   <span className='bg-yellow-500 px-1 font-bold rounded-lg text-zinc-950'>
                     IMDB
                   </span>
-                  {voteAverage.toFixed(1)}
+                  {voteAverage?.toFixed(1)}
                   {"/"}
                   {10}
                 </h6>

@@ -24,7 +24,7 @@ const Credits = () => {
 
   const Slider = ({ item, title }) => {
     return (
-      <div className='bg-zinc-950 flex flex-col items-start child:pb-4 px-4 md:px-10'>
+      <div className='bg-zinc-950 flex flex-col items-start child:pb-4 px-4 '>
         <h1 className='text-zinc-50 text-2xl decoration-orange-500 underline underline-offset-4'>
           {title}
         </h1>
@@ -33,7 +33,7 @@ const Credits = () => {
           slidesPerView={2}
           navigation={true}
           modules={[Navigation]}
-          className='mySwiper w-full px-2 md:px-10'
+          className='mySwiper w-full'
           breakpoints={{
             640: {
               slidesPerView: 2,
@@ -52,8 +52,8 @@ const Credits = () => {
               spaceBetween: 10,
             },
           }}>
-          {item.map((item) => (
-            <SwiperSlide className='relative w-full' key={item.id}>
+          {item.map((item,index) => (
+            <SwiperSlide className='relative w-full' key={index}>
               <div
                 key={item.id}
                 className='bg-gray-700  h-[140px] flex rounded-lg p-2'>
@@ -91,8 +91,8 @@ const Credits = () => {
     <>
       {credits.loading === "fulfilled" ? (
         <>
-          <Slider item={credits.cast} title={"cast"} />
-          <Slider item={credits.crew} title={"crew"} />
+          {credits.cast.length && <Slider item={credits.cast} title={"cast"} />}
+          {credits.crew.length && <Slider item={credits.crew} title={"crew"} />}
         </>
       ) : null}
     </>

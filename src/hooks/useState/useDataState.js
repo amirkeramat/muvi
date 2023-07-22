@@ -32,7 +32,7 @@ const useDataState = (type) => {
             posterPath: singleData.data[type]?.poster_path,
             productionCompanies: singleData.data[
               type
-            ]?.production_companies.map((company) => {
+            ]?.production_companies?.map((company) => {
               return {
                 id: company.id,
                 logoPath: company.logo_path,
@@ -41,10 +41,10 @@ const useDataState = (type) => {
             }),
             productionCountries: singleData.data[
               type
-            ]?.production_countries.map((country) => {
+            ].production_countries?.map((country) => {
               return {
-                iso_3166_1: country.iso_3166_1,
-                name: country.name,
+                iso_3166_1: country?.iso_3166_1,
+                name: country?.name,
               };
             }),
             releaseDate: singleData.data[type]?.release_date,
@@ -73,27 +73,29 @@ const useDataState = (type) => {
           }
         : [],
     videos:
-      singleData.videos.loading === "fulfilled"
+      singleData.videos?.loading === "fulfilled"
         ? singleData.videos?.results
             .slice(0, 5)
             .filter((video) => video.site === "YouTube")
-        : null,
+        : [],
     credits:
       singleData.credits?.loading === "fulfilled"
         ? {
             loading: singleData.credits?.loading,
             cast: singleData.credits?.cast.map((cast) => {
               return {
-                name: cast.name,
-                profilePath: cast.profile_path,
-                character: cast.character,
+                name: cast?.name,
+                profilePath: cast?.profile_path,
+                character: cast?.character,
+                id: cast?.id,
               };
             }),
             crew: singleData.credits?.crew.map((crew) => {
               return {
-                name: crew.name,
-                profilePath: crew.profile_path,
-                job: crew.job,
+                name: crew?.name,
+                profilePath: crew?.profile_path,
+                job: crew?.job,
+                id: crew?.id,
               };
             }),
           }
@@ -108,9 +110,12 @@ const useDataState = (type) => {
             results: singleData.similar?.results.map((item) => {
               return {
                 id: item.id,
-                posterPath: item.poster_path,
-                originalTitle: item.original_title,
-                voteCount: item.vote_count,
+                posterPath: item?.poster_path,
+                originalTitle:
+                  singleData.similar.type === "movie"
+                    ? item.original_title
+                    : item.original_name,
+                voteAverage: item?.vote_average,
               };
             }),
             page: singleData.similar?.page,
@@ -119,6 +124,33 @@ const useDataState = (type) => {
             page: 1,
             loading: singleData.similar?.loading,
             moreLoading: singleData.similar?.moreLoading,
+            results: [],
+          },
+    recommendations:
+      singleData.recommendations?.loading === "fulfilled"
+        ? {
+            loading: singleData.recommendations?.loading,
+            moreLoading: singleData.recommendations?.moreLoading
+              ? singleData.recommendations?.moreLoading
+              : "idle",
+            results: singleData.recommendations?.results.map((item) => {
+              return {
+                id: item.id,
+                posterPath: item?.poster_path,
+                backdropPath: item?.backdrop_path,
+                originalTitle:
+                  singleData.recommendations.type === "movie"
+                    ? item.original_title
+                    : item.original_name,
+                voteAverage: item?.vote_average,
+              };
+            }),
+            page: singleData.recommendations?.page,
+          }
+        : {
+            page: 1,
+            loading: singleData.recommendations?.loading,
+            moreLoading: singleData.recommendations?.moreLoading,
             results: [],
           },
   };

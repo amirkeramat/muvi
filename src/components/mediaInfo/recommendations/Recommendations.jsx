@@ -11,34 +11,34 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { useDispatch } from "react-redux";
 import { getPushData } from "../../../redux/slice/dataSlice";
-const Similar = () => {
+const Recommendations = () => {
   const dispatch = useDispatch();
   const { type, typeId } = useParams();
   const arg = {
     id: Number(typeId),
     type,
-    detail: "similar",
+    detail: "recommendations",
   };
   useFetchById({ arg });
-  const { similar } = useDataState(type);
+  const { recommendations } = useDataState(type);
   const loadMoreHandler = () => {
     const arg = {
       id: Number(typeId),
       type,
       detail: "similar",
-      page: similar.page + 1,
+      page: recommendations.page + 1,
     };
     dispatch(getPushData(arg));
   };
-  console.log(similar);
   return (
     <>
-      {similar.loading === "fulfilled" && similar.results.length > 0 ? (
+      {recommendations.loading === "fulfilled" &&
+      recommendations.results.length > 0 ? (
         <div className='w-full bg-zinc-950 text-white  flex justify-center'>
           <div className=' w-full flex flex-col items-center px-4 py-8'>
             <div className='w-full flex justify-between md:text-2xl child:py-4'>
               <h2 className='underline underline-offset-4 decoration-orange-500'>
-                Similar
+                recommendations
               </h2>
             </div>
             <Swiper
@@ -50,24 +50,24 @@ const Similar = () => {
               breakpoints={{
                 640: {
                   slidesPerView: 2,
-                  spaceBetween: 10,
+                  spaceBetween: 1,
                 },
                 768: {
                   slidesPerView: 4,
-                  spaceBetween: 10,
+                  spaceBetween: 1,
                 },
                 1024: {
-                  slidesPerView: 5,
-                  spaceBetween: 10,
+                  slidesPerView: 4,
+                  spaceBetween: 1,
                 },
                 1368: {
-                  slidesPerView: 6,
-                  spaceBetween: 10,
+                  slidesPerView: 4,
+                  spaceBetween: 1,
                 },
               }}>
-              {similar.results.map((item) => (
+              {recommendations.results.map((item) => (
                 <SwiperSlide className='relative w-full' key={item.id}>
-                  <Card shape={"ver"} type={type} item={item} />
+                  <Card  type={type} item={item} />
                 </SwiperSlide>
               ))}
               {/* <SwiperSlide className='flex flex-col justify-center items-center'>
@@ -84,4 +84,4 @@ const Similar = () => {
   );
 };
 
-export default Similar;
+export default Recommendations;

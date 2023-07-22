@@ -12,7 +12,7 @@ import { useDispatch } from "react-redux";
 import { getPushData } from "../../../redux/slice/homeSlice";
 import useFetch from "../../../hooks/useFetch";
 import listFixer from "../../../helper/list";
-function CardSlider({ type, list }) {
+function CardSlider({ type, list, shape }) {
   const arg = {
     type,
     list,
@@ -37,9 +37,11 @@ function CardSlider({ type, list }) {
       {data.length ? (
         <div className='w-full bg-zinc-950 text-orange-500  flex justify-center'>
           <div className=' w-full flex flex-col items-center p-4'>
-            <div className='w-full flex justify-between md:text-4xl child:py-4'>
-              <h2>{type.toUpperCase()}</h2>
-              <h3>{listFixer(list)}</h3>
+            <div className='w-full flex justify-start items-start md:text-2xl child:py-4 child:me-2'>
+              <h2 className='underline underline-offset-4 decoration-white'>
+                {type === "tv" ? "TV Series" : type.toUpperCase()}
+              </h2>
+              <h3 className='text-sm text-white'>{listFixer(list)}</h3>
             </div>
 
             <Swiper
@@ -51,25 +53,33 @@ function CardSlider({ type, list }) {
               breakpoints={{
                 640: {
                   slidesPerView: 2,
-                  spaceBetween: 10,
+                  spaceBetween: 1,
                 },
                 768: {
                   slidesPerView: 4,
-                  spaceBetween: 10,
+                  spaceBetween: 1,
                 },
                 1024: {
                   slidesPerView: 5,
-                  spaceBetween: 10,
+                  spaceBetween: 1,
                 },
                 1368: {
-                  slidesPerView: 8,
-                  spaceBetween: 10,
+                  slidesPerView: shape === "ver" ? 6 : 4,
+                  spaceBetween: 1,
                 },
               }}>
               {data.map((item) => (
-                <SwiperSlide className='relative w-full' key={item.id}>
-                  <Card type={type} item={item} />
-                </SwiperSlide>
+                <>
+                  {shape === "ver" ? (
+                    <SwiperSlide className='relative w-[200px]' key={item.id}>
+                      <Card shape={shape} type={type} item={item} />
+                    </SwiperSlide>
+                  ) : (
+                    <SwiperSlide className='relative w-[400px]' key={item.id}>
+                      <Card shape={shape} type={type} item={item} />
+                    </SwiperSlide>
+                  )}
+                </>
               ))}
               <SwiperSlide className='flex flex-col justify-center items-center'>
                 <button onClick={loadMoreHandler}>Load More..</button>
@@ -90,4 +100,5 @@ export default CardSlider;
 CardSlider.propTypes = {
   type: PropTypes.string,
   list: PropTypes.string,
+  shape: PropTypes.string,
 };
