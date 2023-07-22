@@ -11,6 +11,7 @@ const initialState = {
   videos: {},
   similar: {},
   error: null,
+  reviews: {},
 };
 
 const options = (type, id, detail, page) => {
@@ -52,7 +53,7 @@ export const getPushData = createAsyncThunk(
   async (arg) => {
     const { type, detail, page, id } = arg;
     return await axios
-      .request(options_pushData(type,id,detail,page))
+      .request(options_pushData(type, id, detail, page))
       .then((res) => ({ ...res.data, type, detail }))
       .catch((err) => err.message);
   }
@@ -117,7 +118,6 @@ const dataSlice = createSlice({
 
 export default dataSlice.reducer;
 export const resetAction = dataSlice.actions.reset;
-
 
 // import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 // import axios from "axios";

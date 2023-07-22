@@ -48,9 +48,14 @@ p,div,span{
 }
  .swiper-button-next,
  .swiper-button-prev {
-
-   border-radius: 100%;
-   color: orangered;
-   opacity: 20%;
-   width: 10px;
+  scale: 0.75;
  }
+ 
+.swiper-button-prev{
+  left: -6px;
+  color: orangered;
+}
+.swiper-button-next{
+  right: -6px;
+  color: orangered;
+}

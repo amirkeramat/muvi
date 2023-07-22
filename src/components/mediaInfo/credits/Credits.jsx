@@ -33,7 +33,7 @@ const Credits = () => {
           slidesPerView={2}
           navigation={true}
           modules={[Navigation]}
-          className='mySwiper w-full'
+          className='mySwiper w-full p-2'
           breakpoints={{
             640: {
               slidesPerView: 2,

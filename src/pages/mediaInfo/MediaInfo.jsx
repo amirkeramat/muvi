@@ -1,5 +1,5 @@
 
-import { Intro,Videos,Credits,Similar,Recommendations } from "../../components/mediaInfo";
+import { Intro,Videos,Credits,Similar,Recommendations,Reviews } from "../../components/mediaInfo";
 
 const MediaInfo = () => {
   return (
@@ -9,6 +9,7 @@ const MediaInfo = () => {
       <Credits/>
       <Similar/>
       <Recommendations/>
+      <Reviews/>
     </>
   );
 };

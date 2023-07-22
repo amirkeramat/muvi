@@ -3,16 +3,16 @@ import { useParams } from "react-router-dom";
 import { useDataState } from "../../../hooks";
 import Card from "../../shared/card/Card";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { LoadingOutlined } from "@ant-design/icons";
+// import { LoadingOutlined } from "@ant-design/icons";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { useDispatch } from "react-redux";
-import { getPushData } from "../../../redux/slice/dataSlice";
+// import { useDispatch } from "react-redux";
+// import { getPushData } from "../../../redux/slice/dataSlice";
 const Recommendations = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const { type, typeId } = useParams();
   const arg = {
     id: Number(typeId),
@@ -21,15 +21,15 @@ const Recommendations = () => {
   };
   useFetchById({ arg });
   const { recommendations } = useDataState(type);
-  const loadMoreHandler = () => {
-    const arg = {
-      id: Number(typeId),
-      type,
-      detail: "similar",
-      page: recommendations.page + 1,
-    };
-    dispatch(getPushData(arg));
-  };
+  // const loadMoreHandler = () => {
+  //   const arg = {
+  //     id: Number(typeId),
+  //     type,
+  //     detail: "similar",
+  //     page: recommendations.page + 1,
+  //   };
+  //   dispatch(getPushData(arg));
+  // };
   return (
     <>
       {recommendations.loading === "fulfilled" &&

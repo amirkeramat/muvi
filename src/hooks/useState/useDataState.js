@@ -153,6 +153,28 @@ const useDataState = (type) => {
             moreLoading: singleData.recommendations?.moreLoading,
             results: [],
           },
+    reviews:
+      singleData.reviews?.loading === "fulfilled"
+        ? {
+            loading: singleData.reviews?.loading,
+            type: singleData.reviews?.type,
+            results: singleData.reviews?.results.map((review) => {
+              return {
+                author: review?.author,
+                authorDetails: review?.author_details,
+                content: review?.content,
+                createdAt: review?.created_at,
+                id: review?.id,
+              };
+            }),
+            page: singleData.reviews?.page,
+          }
+        : {
+            page: 1,
+            loading: singleData.reviews?.loading,
+            results: [],
+            type: singleData.reviews?.type,
+          },
   };
 };
 export default useDataState;
