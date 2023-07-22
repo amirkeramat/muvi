@@ -1,7 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { Container, Img, Menu, Nav, SearchIcon } from "./header.style";
 import {Search} from '../index'
-import {SearchOutlined} from "@ant-design/icons";
 const Header = () => {
   return (
     <Container>
@@ -31,6 +30,7 @@ const Header = () => {
           >
             Sign Up
           </NavLink>
+          <Search/>
         </Menu>
         <Img src="./logo.png" />
       </Nav>

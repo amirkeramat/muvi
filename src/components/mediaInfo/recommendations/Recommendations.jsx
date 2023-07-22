@@ -35,7 +35,7 @@ const Recommendations = () => {
       {recommendations.loading === "fulfilled" &&
       recommendations.results.length > 0 ? (
         <div className='w-full bg-zinc-950 text-white  flex justify-center'>
-          <div className=' w-full flex flex-col items-center px-4 py-8'>
+          <div className=' w-full flex flex-col items-center px-4 py-8 container'>
             <div className='w-full flex justify-between md:text-2xl child:py-4'>
               <h2 className='underline underline-offset-4 decoration-orange-500'>
                 recommendations

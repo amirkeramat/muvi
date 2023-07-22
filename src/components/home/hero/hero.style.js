@@ -1,11 +1,11 @@
 import tw from "tailwind-styled-components";
 
 export const Container = tw.section`
-w-full h-screen bg-top bg-origin-content bg-cover  bg-no-repeat relative after:content-[''] after:absolute after:z-[998] after:bg-zinc-950/20 after:inset-0
+w-full md:h-screen h-[500px] bg-top  relative
 `;
 
 export const Content = tw.div`
-absolute  w-full bottom-0 z-[999] p-4 flex flex-col bg-gradient-to-t via-zinc-950/70 from-zinc-950/70 to-zinc-950/40 items-center
+absolute  w-full bottom-0 z-[999] p-4 flex flex-col  items-center
 `;
 
 export const Title = tw.h1`

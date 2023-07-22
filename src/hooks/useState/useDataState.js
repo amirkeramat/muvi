@@ -32,7 +32,7 @@ const useDataState = (type) => {
             posterPath: singleData.data[type]?.poster_path,
             productionCompanies: singleData.data[
               type
-            ]?.production_companies?.map((company) => {
+            ].production_companies?.map((company) => {
               return {
                 id: company.id,
                 logoPath: company.logo_path,

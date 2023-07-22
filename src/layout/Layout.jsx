@@ -17,13 +17,14 @@ const Layout = ({ children }) => {
   return (
     <Container>
       <Header />
-      <main className='w-full h-full bg-zinc-950'>{children}</main>
+      <main className="w-full h-full bg-zinc-950 ">{children}</main>
       <footer></footer>
       <i
         className={`text-orange-500 z-[999] text-4xl fixed bottom-0 left-2 bg-gray-900 rounded-full p-2  justify-center items-center ${
           showGoUp ? "flex" : "hidden"
         }`}
-        onClick={goUpHandler}>
+        onClick={goUpHandler}
+      >
         <ArrowUpOutlined />
       </i>
     </Container>

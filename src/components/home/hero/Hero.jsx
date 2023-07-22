@@ -50,26 +50,28 @@ const Hero = () => {
             disableOnInteraction: false,
           }}
           modules={[EffectFade, Navigation, Pagination, Autoplay]}
-          className='mySwiper w-full h-screen'>
+          className="mySwiper w-full md:h-screen h-[500px]"
+        >
           {data.slice(0, 20).map((item) => (
             <SwiperSlide key={item.id}>
               <Container>
                 <LazyLoadImage
                   src={`${BACK_DROP_ORIGINAL}${item.backdropPath}`}
                   width={"100%"}
-                  className='h-screen  object-cover object-center'
+                  className="md:h-screen h-[500px]  object-cover object-center"
+                  wrapperClassName="h-full  w-full after:absolute after:inset-0 after:content-[''] after:bg-zinc-950/40 "
                   placeholderSrc={`${BACK_DROP_W300}/${item.posterPath}`}
-                  effect='blur'
+                  effect="blur"
                   alt={item.title}
                 />
                 <Content>
-                  <Title className='rounded-full flex items-center text-zinc-50 text-2xl justify-center w-full'>
+                  <Title className="rounded-full flex items-center text-zinc-50 text-2xl justify-center w-full">
                     <Link to={`/mediaInfo/${arg.type}/${item.id}`}>
                       {item.originalTitle}
                     </Link>
                   </Title>
 
-                  <span className='flex w-full child:py-4 child:px-6 items-center justify-center'>
+                  <span className="flex w-full child:py-4 child:px-6 items-center justify-center">
                     <Language>
                       {item.originalLanguage === "en"
                         ? "English"

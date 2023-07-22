@@ -14,7 +14,7 @@ export const Nav = tw.nav`
 
 export const Menu = tw.div`
 hidden items-center md:flex
-child:pe-8 child-hover:text-orange-400
+child:pe-8 child:whitespace-nowrap child-hover:text-orange-400
 
 `;
 
