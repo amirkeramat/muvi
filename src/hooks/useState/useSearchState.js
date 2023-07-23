@@ -5,10 +5,11 @@ const useSearchState = () => {
   if (searchState.loading === "fulfilled") {
     return {
       loading: searchState?.loading,
+      moreLoading: searchState?.moreLoading,
       pager: {
-        page: searchState?.page,
-        totalPage: searchState?.total_page,
-        totalResults: searchState?.total_results,
+        page: searchState.data?.page,
+        totalPages: searchState.data?.total_pages,
+        totalResults: searchState.data?.total_results,
       },
       results: searchState.data.results?.map((result) => {
         return {

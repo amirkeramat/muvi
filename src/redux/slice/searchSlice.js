@@ -4,6 +4,7 @@ import { BASE_URL, API_KEY } from "../../api/index";
 
 const initialState = {
   loading: "idle",
+  moreLoading:"idle",
   error: null,
   data: {},
 };
@@ -62,7 +63,8 @@ const searchSlice = createSlice({
     getData;
     builder.addCase(getPushData.fulfilled, (state, action) => {
       (state.moreLoading = "fulfilled"),
-        state.data.result.push(...action.payload.results);
+        state.data.results.push(...action.payload.results);
+        state.data.page = action.payload.page
     });
 
     builder.addCase(getPushData.rejected, (state, action) => {

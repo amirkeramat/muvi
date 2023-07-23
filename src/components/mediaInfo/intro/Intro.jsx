@@ -6,15 +6,15 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 import { Link } from "react-router-dom";
 import { PageLoader } from "../../shared";
 import { useParams } from "react-router-dom";
-import {useFetchById} from "../../../hooks";
+import { useFetchById } from "../../../hooks";
 const Intro = () => {
-   const { type, typeId } = useParams();
-   const arg = {
-     id: Number(typeId),
-     type,
-     detail: "",
-   };
-   useFetchById({ arg });
+  const { type, typeId } = useParams();
+  const arg = {
+    id: Number(typeId),
+    type,
+    detail: "",
+  };
+  useFetchById({ arg });
   const { data, loading } = useDataState(type);
   const {
     backdropPath,
@@ -27,6 +27,8 @@ const Intro = () => {
     firstAirDate,
     overview,
     genres,
+    numberOfEpisodes,
+    numberOfSeasons,
   } = data;
   return (
     <>
@@ -58,15 +60,15 @@ const Intro = () => {
                   </Link>
                 ))}
               </span>
-              <div className="grid grid-cols-3 child:mb-2 text-sm md:w-[350px]">
-                <h6 className="bg-gray-900 text-gray-400 whitespace-nowrap md:py-3 md:px-2 px-2 py-2 w-[110px] rounded-xl flex justify-center items-center">
+              <div className="grid grid-cols-3 md:grid-cols-5 child:mb-2 text-sm md:w-[650px]">
+                <h6 className="bg-gray-900 text-gray-400 whitespace-nowrap md:py-3 md:px-2 px-2 py-2 text-xs md:text-sm w-[115px] md:w-[120px] rounded-xl flex justify-center items-center">
                   {status}
                 </h6>
-                <h6 className="bg-gray-900 text-gray-400 whitespace-nowrap md:py-3 md:px-2 w-[110px] px-1 py-2 rounded-xl flex justify-center items-center">
+                <h6 className="bg-gray-900 text-gray-400 whitespace-nowrap md:py-3 md:px-2 md:w-[120px] px-1 py-2 text-xs md:text-sm w-[115px] rounded-xl flex justify-center items-center">
                   {releaseDate?.slice(0, 4)}
                   {firstAirDate?.slice(0, 4)}
                 </h6>
-                <h6 className="bg-gray-900   text-gray-400 whitespace-nowrap md:py-3 md:px-2 px-1 py-2 w-[110px] rounded-xl flex justify-center items-center child:me-1">
+                <h6 className="bg-gray-900   text-gray-400 whitespace-nowrap md:py-3 md:px-2 px-1 py-2 text-xs md:text-sm w-[115px] md:w-[120px] rounded-xl flex justify-center items-center child:me-1">
                   <span className="bg-yellow-500 px-1 font-bold rounded-lg text-zinc-950">
                     IMDB
                   </span>
@@ -74,6 +76,20 @@ const Intro = () => {
                   {"/"}
                   {10}
                 </h6>
+                {numberOfEpisodes ? (
+                  <h6 className="bg-gray-900   text-gray-400 whitespace-nowrap md:py-3 md:px-2 px-1 py-2 text-xs md:text-sm w-[115px] md:w-[120px] rounded-xl flex justify-center items-center child:me-1">
+                    <span className="px-1 font-bold  text-gray-500">
+                      Seasons:
+                    </span>
+                    {numberOfSeasons}
+                  </h6>
+                ) : null}
+                {numberOfEpisodes ? (
+                  <h6 className="bg-gray-900   text-gray-400 whitespace-nowrap md:py-3 md:px-2 px-1 py-2 text-xs md:text-sm w-[115px] md:w-[120px] rounded-xl flex justify-center items-center child:me-1">
+                    <span className=" px-1 text-gray-500">episodes:</span>
+                    {numberOfEpisodes}
+                  </h6>
+                ) : null}
               </div>
               <button className="bg-orange-500 px-8 py-2 rounded-xl">
                 Download

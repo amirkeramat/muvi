@@ -65,7 +65,7 @@ function CardSlider({ type, list, shape }) {
                   spaceBetween: 1,
                 },
                 1368: {
-                  slidesPerView: shape === "ver" ? 7 : 5,
+                  slidesPerView: shape === "ver" ? 7 : 4,
                   spaceBetween: 1,
                 },
               }}
