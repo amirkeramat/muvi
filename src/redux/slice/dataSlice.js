@@ -14,7 +14,7 @@ const initialState = {
   reviews: {},
 };
 
-const options = (type, id, detail, page) => {
+const options = (type, id, detail) => {
   return {
     method: "GET",
     url:
