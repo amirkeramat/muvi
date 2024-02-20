@@ -34,13 +34,13 @@ const Header = () => {
           </NavLink>
           <NavLink
             className={({ isActive }) => isActive && "text-orange-400"}
-            to={"/TvSeries"}
+            to={"/SignUp"}
           >
             Sign Up
           </NavLink>
           <NavLink
             className={({ isActive }) => isActive && "text-orange-400"}
-            to={"/TvSeries"}
+            to={"/AdvanceSearch"}
           >
             Advance Search
           </NavLink>

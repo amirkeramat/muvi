@@ -21,7 +21,7 @@ const options = (type, id, detail, page) => {
       detail !== ""
         ? `${BASE_URL}/${type}/${id}/${detail}`
         : `${BASE_URL}/${type}/${id}`,
-    params: page ? { page: page } : null,
+    // params: page ? { page: page } : null,
     headers: {
       accept: "application/json",
       Authorization: `Bearer ${API_KEY}`,

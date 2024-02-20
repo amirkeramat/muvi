@@ -13,7 +13,7 @@ const initialState = {
     airing_today: {},
     on_the_air: {},
     popular: {},
-    top_rated: {}
+    top_rated: {},
   },
   error: null,
 };
@@ -21,7 +21,7 @@ const initialState = {
 const options = (type, list, page) => {
   return {
     method: "GET",
-    url: `${BASE_URL}/${type}/${list}/?page=${page}`,
+    url: `${BASE_URL}/${type}/${list}?page=${page}`,
     headers: {
       accept: "application/json",
       Authorization: `Bearer ${API_KEY}`,
